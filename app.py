@@ -10,7 +10,7 @@ app = Flask(__name__)
 def connDB(data):
 	
 
-	cnxn = pyodbc.connect(config('SQLAZURECONNSTR_WWIF'))
+	cnxn = pyodbc.connect(config('SQLAZURECONNSTR'))
 
 	cursor = cnxn.cursor()
 	
