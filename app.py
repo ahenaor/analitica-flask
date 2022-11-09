@@ -1,15 +1,8 @@
-from datetime import datetime
-import os
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 
 from decouple import config
 import json
-
-
-from threading import Lock
-import socket
 import pyodbc
-from tenacity import *
 
 app = Flask(__name__)
 
@@ -28,8 +21,8 @@ def connDB(data):
 	jsonData["primerInput"] = data
 
 
-	#cursor.execute(sql, json.dumps(jsonData))
-	cursor.execute(sql, 'CURRENT_TIMESTAMP')
+	cursor.execute(sql, json.dumps(jsonData))
+	
 	
 	cursor.commit() 
 	cnxn.close()
